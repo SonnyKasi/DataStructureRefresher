@@ -3,10 +3,7 @@ package org.example;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
@@ -31,6 +28,7 @@ public class AppTest
         memberList.add(persons3);
         memberList.add(persons4);
     }
+
 
     @Test
     public void testList() {
@@ -87,6 +85,35 @@ public class AppTest
 
 
             assertThat(map, is(expected));
+
+        }
+
+        @Test
+        public  void testSet(){
+            Person persons1 = new Person("Linda", "Minister", 52);
+            Person persons2 = new Person("Mike", "IT Specialist", 36);
+            Person persons3 = new Person("Jim", "Teacher", 42);
+            Person persons4 = new Person("Sizwe", "Student", 24);
+            Person persons5 = new Person("Jim", "Teacher", 42);
+            Person persons6 = new Person("Mike", "IT Specialist", 36);
+
+            List<Person> memberList = new ArrayList<>();
+            memberList.add(persons1);
+            memberList.add(persons2);
+            memberList.add(persons3);
+            memberList.add(persons4);
+            memberList.add(persons5);
+            memberList.add(persons6);
+
+            Set<Person> aSetCollection = new HashSet<Person>();
+            aSetCollection.add(persons1);
+            aSetCollection.add(persons2);
+            aSetCollection.add(persons3);
+            aSetCollection.add(persons4);
+            aSetCollection.add(persons5);
+            aSetCollection.add(persons6);
+
+            assertThat(aSetCollection,hasItems(persons1,persons2,persons3,persons4));
 
         }
 
